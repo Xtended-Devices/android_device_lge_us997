@@ -16,17 +16,20 @@
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-
-# Inherit some common Lineage stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 
 # Inherit from us997 device
 $(call inherit-product, device/lge/us997/device.mk)
 
+# Inherit some common AEX stuff.
+$(call inherit-product, vendor/aosp/common.mk)
+
+# Boot animation res
+TARGET_BOOT_ANIMATION_RES := 2140
+
 # Set those variables here to overwrite the inherited values.
 PRODUCT_DEVICE := us997
-PRODUCT_NAME := lineage_us997
+PRODUCT_NAME := aosp_us997
 PRODUCT_BRAND := lge
 PRODUCT_MODEL := LG-US997
 PRODUCT_MANUFACTURER := LGE
